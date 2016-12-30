@@ -24,6 +24,9 @@ var LLOneSignalService = angular.module('LLOneSignalModule', [])
 					enable : true
 				}
 			} ]);
+			
+			OneSignal.push(["addListenerForNotificationOpened", this.notificationOpenedCallback]);
+			OneSignal.on('notificationDisplay', this.notificationReceivedCallback);
 
     	}
 	};
