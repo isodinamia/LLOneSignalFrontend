@@ -15,7 +15,7 @@ var LLOneSignalService = angular.module('LLOneSignalModule', [])
 
     	} else {
 
-    		var OneSignal = $window.OneSignal || [];
+    		var OneSignal = window.OneSignal || [];
 	
 			OneSignal.push([ "init", {
 				appId : "7d02bfcd-e065-42a3-9949-21506a47f788",

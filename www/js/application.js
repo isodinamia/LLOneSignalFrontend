@@ -3,8 +3,6 @@ var helloApp = angular.module("LLOneSignalApp", ['LLOneSignalModule']);
 helloApp.controller("LLOneSignalCtrl",
 	function($scope, LLOneSignalService) {
 
-		
-
 		$scope.$on('tags-received', function(event, args) {
 			var tags = args.tags;
 			$scope.message = tags;
