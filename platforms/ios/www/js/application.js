@@ -1,18 +1,34 @@
 var helloApp = angular.module("LLOneSignalApp", ['LLOneSignalModule']);
 
 helloApp.controller("LLOneSignalCtrl",
-	function($scope, $window, LLOneSignalService) {
+	function($scope, LLOneSignalService) {
 
-		$scope.name = "Calvin Hobbes";
+		
 
-		var callback = function(payload){ 
-			console.log(payload);
-		}
-
-		LLOneSignalService.initialize(callback, callback);
-
-		LLOneSignalService.getTags(function(tags){
+		$scope.$on('tags-received', function(event, args) {
+			var tags = args.tags;
+			$scope.message = tags;
+			$scope.$apply();
 			console.log(tags);
 		});
+
+		$scope.$on('notification-received', function(event, args) {
+			var payload = args.payload;
+			$scope.message = payload;
+			$scope.$apply();
+			console.log(payload);
+		});
+
+		$scope.$on('notification-opened', function(event, args) {
+			var payload = args.payload;
+			$scope.message = payload;
+			$scope.$apply();
+			console.log(payload);
+		});
+
+		LLOneSignalService.initialize();
+		$scope.message = "Controller initialized";
+		LLOneSignalService.getTags();
+
 	}
 );
