@@ -1,5 +1,5 @@
 var LLOneSignalService = angular.module('LLOneSignalModule', [])
-.service('LLOneSignalService', function($rootScope) {
+.service('LLOneSignalService', ['$rootScope' , function($rootScope) {
 
 	this.initialize = function( appId ) {
 
@@ -67,4 +67,4 @@ var LLOneSignalService = angular.module('LLOneSignalModule', [])
 		$rootScope.$broadcast('notification-opened', { payload });
 	}
 	
-});
+}]);
