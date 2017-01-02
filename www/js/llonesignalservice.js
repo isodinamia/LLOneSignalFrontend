@@ -1,14 +1,14 @@
 var LLOneSignalService = angular.module('LLOneSignalModule', [])
 .service('LLOneSignalService', ['$rootScope' , function($rootScope) {
 
-	this.initialize = function( appId ) {
+	this.initialize = function( appId , androidAppId ) {
 
 		this.isCordovaApp = !!window.cordova;
 
 		if(this.isCordovaApp){
 
 			window.plugins.OneSignal
-				.startInit(appId)
+				.startInit(appId, androidAppId )
     			.handleNotificationOpened(this.notificationOpenedCallback)
     			.handleNotificationReceived(this.notificationReceivedCallback)
     			.endInit();
