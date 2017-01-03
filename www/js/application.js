@@ -24,7 +24,7 @@ helloApp.controller("LLOneSignalCtrl",
 			console.log(payload);
 		});
 
-		LLOneSignalService.initialize("7d02bfcd-e065-42a3-9949-21506a47f788");
+		LLOneSignalService.initialize("7d02bfcd-e065-42a3-9949-21506a47f788", 'androidAppId', 'web.onesignal.auto.34975c41-96f8-43c9-89c6-048b8e5234aa');
 		$scope.message = "Controller initialized";
 		LLOneSignalService.getTags();
 
