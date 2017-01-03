@@ -1,7 +1,7 @@
 var LLOneSignalService = angular.module('LLOneSignalModule', [])
 .service('LLOneSignalService', ['$rootScope' , function($rootScope) {
 
-	this.initialize = function( appId , androidAppId ) {
+	this.initialize = function( appId , androidAppId, safariWebId ) {
 
 		this.isCordovaApp = !!window.cordova;
 
@@ -20,6 +20,7 @@ var LLOneSignalService = angular.module('LLOneSignalModule', [])
 			OneSignal.push([ "init", {
 				appId : appId,
 				autoRegister : false,
+				safari_web_id: safariWebId,
 				notifyButton : {
 					enable : true
 				}
