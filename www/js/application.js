@@ -24,7 +24,7 @@ helloApp.controller("LLOneSignalCtrl",
 			console.log(payload);
 		});
 
-		LLOneSignalService.initialize();
+		LLOneSignalService.initialize("7d02bfcd-e065-42a3-9949-21506a47f788");
 		$scope.message = "Controller initialized";
 		LLOneSignalService.getTags();
 
